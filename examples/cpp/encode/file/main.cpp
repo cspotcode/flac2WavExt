@@ -142,18 +142,11 @@ int main(int argc, char *argv[])
 			}
 			else {
 				/* convert the packed 8-bit PCM samples from WAVE into an interleaved FLAC__int32 buffer for libFLAC */
-				FLAC__int8 temp[4];
-				temp[0] = 0;
-				temp[1] = 0;
-				temp[2] = 0;
-				temp[3] = 0;
 				size_t i;
 				for(i = 0; i < need*channels; i++) {
 					/* inefficient but simple and works on big- or little-endian machines */
 					//pcm[i] = (FLAC__int32)(((FLAC__int16)(FLAC__int8)buffer[2*i+1] << 8) | (FLAC__int16)buffer[2*i]);
-					temp[0] = buffer[i];
-					temp[0] ^= 0x80;
-					pcm[i] = /* *(FLAC__int32*)& */temp[0]; // TODO fix this ugliness
+					pcm[i] = /* *(FLAC__int32*)& */(FLAC__int8)(buffer[i] ^ 0x80); // TODO fix this ugliness
 				}
 				/* feed samples to encoder */
 				ok = encoder.process_interleaved(pcm, need);
