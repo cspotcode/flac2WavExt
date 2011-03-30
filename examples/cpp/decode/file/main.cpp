@@ -18,7 +18,7 @@
 
 /*
  * This example shows how to use libFLAC++ to decode a FLAC file to a WAVE
- * file.  It only supports 16-bit stereo files.
+ * file.  It only supports 8-bit mono files.
  *
  * Complete API documentation can be found at:
  *   http://flac.sourceforge.net/api/
