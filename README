@@ -4,4 +4,4 @@ It reads a flac file from disc and outputs a wav file to disc.  Game Maker does 
 
 This DLL is hacked together and rough around the edges.  There's no point in polishing it unless it ends up being used in Gang Garrison 2.
 
-99.99% of this code is the totally unmodified flac source code, available from http://flac.sourceforge.net/.
+99.99% of this code is the totally unmodified flac source code, available from http://flac.sourceforge.net/.  As such, the license is identical.
