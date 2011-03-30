@@ -32,10 +32,18 @@
 #include <stdlib.h>
 #include "FLAC++/decoder.h"
 
+#define BYTESPERSAMPLE 1
+#define CHANNELS 1
+
 static FLAC__uint64 total_samples = 0;
 static unsigned sample_rate = 0;
 static unsigned channels = 0;
 static unsigned bps = 0;
+
+static bool write_uint8(FILE *f, FLAC__uint8 x)
+{
+	return fputc(x, f) != EOF;
+}
 
 static bool write_little_endian_uint16(FILE *f, FLAC__uint16 x)
 {
@@ -122,8 +130,8 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "ERROR: this example only works for FLAC files that have a total_samples count in STREAMINFO\n");
 		return FLAC__STREAM_DECODER_WRITE_STATUS_ABORT;
 	}
-	if(channels != 2 || bps != 16) {
-		fprintf(stderr, "ERROR: this example only supports 16bit stereo streams\n");
+	if(channels != CHANNELS || bps != 8 * BYTESPERSAMPLE) {
+		fprintf(stderr, "ERROR: this example only supports 8bit mono streams\n");
 		return FLAC__STREAM_DECODER_WRITE_STATUS_ABORT;
 	}
 
@@ -151,8 +159,9 @@ int main(int argc, char *argv[])
 	/* write decoded PCM samples */
 	for(i = 0; i < frame->header.blocksize; i++) {
 		if(
-			!write_little_endian_int16(f, (FLAC__int16)buffer[0][i]) ||  /* left channel */
-			!write_little_endian_int16(f, (FLAC__int16)buffer[1][i])     /* right channel */
+			!write_uint8(f, ((FLAC__uint8)buffer[0][i] ^ 0x80)) /* flip the sign but cuz 8-bit wave is unsigned */
+			//!write_little_endian_int16(f, (FLAC__int16)buffer[0][i]) ||  /* left channel */
+			//!write_little_endian_int16(f, (FLAC__int16)buffer[1][i])     /* right channel */
 		) {
 			fprintf(stderr, "ERROR: write error\n");
 			return FLAC__STREAM_DECODER_WRITE_STATUS_ABORT;
