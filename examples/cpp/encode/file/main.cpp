@@ -42,9 +42,12 @@ protected:
 
 #define READSIZE 1024
 
+#define BYTESPERSAMPLE 1
+#define CHANNELS 1
+
 static unsigned total_samples = 0; /* can use a 32-bit number due to WAVE size limitations */
-static FLAC__byte buffer[READSIZE/*samples*/ * 2/*bytes_per_sample*/ * 2/*channels*/]; /* we read the WAVE data into here */
-static FLAC__int32 pcm[READSIZE/*samples*/ * 2/*channels*/];
+static FLAC__byte buffer[READSIZE/*samples*/ * BYTESPERSAMPLE/*bytes_per_sample*/ * CHANNELS/*channels*/]; /* we read the WAVE data into here */
+static FLAC__int32 pcm[READSIZE/*samples*/ * CHANNELS/*channels*/];
 static FLAC__int32 *pcm_[2] = { pcm, pcm+READSIZE };
 
 int main(int argc, char *argv[])
@@ -73,17 +76,17 @@ int main(int argc, char *argv[])
 	if(
 		fread(buffer, 1, 44, fin) != 44 ||
 		memcmp(buffer, "RIFF", 4) ||
-		memcmp(buffer+8, "WAVEfmt \020\000\000\000\001\000\002\000", 16) ||
-		memcmp(buffer+32, "\004\000\020\000data", 8)
+		memcmp(buffer+8, "WAVEfmt \020\000\000\000\001\000\001\000", 16) || // subchunk size (0x10000000), audio format (0x0100 ?), numchannels TODO rewrite this to look at CHANNELS and BYTESPERSAMPLE
+		memcmp(buffer+32, "\001\000\010\000data", 8) // 16bits blockalign, 16bits bits per sample, start of next chunk ("data")
 	) {
-		fprintf(stderr, "ERROR: invalid/unsupported WAVE file, only 16bps stereo WAVE in canonical form allowed\n");
+		fprintf(stderr, "ERROR: invalid/unsupported WAVE file, only 8bps mono WAVE in canonical form allowed\n");
 		fclose(fin);
 		return 1;
 	}
 	sample_rate = ((((((unsigned)buffer[27] << 8) | buffer[26]) << 8) | buffer[25]) << 8) | buffer[24];
-	channels = 2;
-	bps = 16;
-	total_samples = (((((((unsigned)buffer[43] << 8) | buffer[42]) << 8) | buffer[41]) << 8) | buffer[40]) / 4;
+	channels = CHANNELS;
+	bps = 8 * BYTESPERSAMPLE;
+	total_samples = (((((((unsigned)buffer[43] << 8) | buffer[42]) << 8) | buffer[41]) << 8) | buffer[40]) / (CHANNELS * BYTESPERSAMPLE);
    
 	/* check the encoder */
 	if(!encoder) {
@@ -138,11 +141,19 @@ int main(int argc, char *argv[])
 				ok = false;
 			}
 			else {
-				/* convert the packed little-endian 16-bit PCM samples from WAVE into an interleaved FLAC__int32 buffer for libFLAC */
+				/* convert the packed 8-bit PCM samples from WAVE into an interleaved FLAC__int32 buffer for libFLAC */
+				FLAC__int8 temp[4];
+				temp[0] = 0;
+				temp[1] = 0;
+				temp[2] = 0;
+				temp[3] = 0;
 				size_t i;
 				for(i = 0; i < need*channels; i++) {
 					/* inefficient but simple and works on big- or little-endian machines */
-					pcm[i] = (FLAC__int32)(((FLAC__int16)(FLAC__int8)buffer[2*i+1] << 8) | (FLAC__int16)buffer[2*i]);
+					//pcm[i] = (FLAC__int32)(((FLAC__int16)(FLAC__int8)buffer[2*i+1] << 8) | (FLAC__int16)buffer[2*i]);
+					temp[0] = buffer[i];
+					temp[0] ^= 0x80;
+					pcm[i] = /* *(FLAC__int32*)& */temp[0]; // TODO fix this ugliness
 				}
 				/* feed samples to encoder */
 				ok = encoder.process_interleaved(pcm, need);
