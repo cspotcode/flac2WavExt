@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="FLAC">
+</Property><Property Name="Solution File" Value="C:\Users\cspotcode\Documents\dev\flac-1.2.1\FLAC.sln">
+</Property><Property Name="User Options File" Value="C:\Users\cspotcode\Documents\dev\flac-1.2.1\FLAC.suo">
+</Property><Property Name="Date" Value="Tuesday, March 29, 2011">
+</Property><Property Name="Time" Value="22:40 PM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="2" Project="" Source="FLAC.sln" Description="Error creating backup file: C:\Users\cspotcode\Documents\dev\flac-1.2.1\FLAC.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="FLAC.suo" Description="File successfully backed up as C:\Users\cspotcode\Documents\dev\flac-1.2.1\FLAC.suo.old">
+</Event><Event ErrorLevel="3" Project="example_c_decode_file" Source="examples\c\decode\file\example_c_decode_file.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="example_c_encode_file" Source="examples\c\encode\file\example_c_encode_file.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="example_cpp_decode_file" Source="examples\cpp\decode\file\example_cpp_decode_file.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="example_cpp_encode_file" Source="examples\cpp\encode\file\example_cpp_encode_file.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="flac" Source="src\flac\flac.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="iffscan" Source="src\flac\iffscan.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="flac_mac" Source="src\monkeys_audio_utilities\flac_mac\flac_mac.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="flac_ren" Source="src\monkeys_audio_utilities\flac_ren\flac_ren.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="flacdiff" Source="src\utils\flacdiff\flacdiff.vcproj" Description="Converting project file 'C:\Users\cspotcode\Documents\dev\flac-1.2.1\src\utils\flacdiff\flacdiff.vcproj'.">
+</Event><Event ErrorLevel="2" Project="flacdiff" Source="src\utils\flacdiff\flacdiff.vcproj" Description="File 'C:\Users\cspotcode\Documents\dev\flac-1.2.1\src\utils\flacdiff\flacdiff.vcproj' was not found.">
+</Event><Event ErrorLevel="2" Project="flacdiff" Source="src\utils\flacdiff\flacdiff.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="flacdiff" Source="src\utils\flacdiff\flacdiff.vcproj" Description="Not Converted">
+</Event><Event ErrorLevel="0" Project="flactimer" Source="src\utils\flactimer\flactimer.vcproj" Description="Converting project file 'C:\Users\cspotcode\Documents\dev\flac-1.2.1\src\utils\flactimer\flactimer.vcproj'.">
+</Event><Event ErrorLevel="2" Project="flactimer" Source="src\utils\flactimer\flactimer.vcproj" Description="File 'C:\Users\cspotcode\Documents\dev\flac-1.2.1\src\utils\flactimer\flactimer.vcproj' was not found.">
+</Event><Event ErrorLevel="2" Project="flactimer" Source="src\utils\flactimer\flactimer.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="flactimer" Source="src\utils\flactimer\flactimer.vcproj" Description="Not Converted">
+</Event><Event ErrorLevel="3" Project="getopt_static" Source="src\share\getopt\getopt_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="grabbag_static" Source="src\share\grabbag\grabbag_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="in_flac" Source="src\plugin_winamp2\in_flac.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="libFLAC_dynamic" Source="src\libFLAC\libFLAC_dynamic.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="libFLAC_static" Source="src\libFLAC\libFLAC_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="libFLAC++_dynamic" Source="src\libFLAC++\libFLAC++_dynamic.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="libFLAC++_static" Source="src\libFLAC++\libFLAC++_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="metaflac" Source="src\metaflac\metaflac.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="plugin_common_static" Source="src\plugin_common\plugin_common_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="replaygain_analysis_static" Source="src\share\replaygain_analysis\replaygain_analysis_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="replaygain_synthesis_static" Source="src\share\replaygain_synthesis\replaygain_synthesis_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="test_cuesheet" Source="src\test_grabbag\cuesheet\test_cuesheet.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="test_libFLAC" Source="src\test_libFLAC\test_libFLAC.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="test_libFLAC++" Source="src\test_libFLAC++\test_libFLAC++.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="test_libs_common_static" Source="src\test_libs_common\test_libs_common_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="test_picture" Source="src\test_grabbag\picture\test_picture.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="test_seeking" Source="src\test_seeking\test_seeking.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="test_streams" Source="src\test_streams\test_streams.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="utf8_static" Source="src\share\utf8\utf8_static.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="FLAC.sln" Description="The solution file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="" Source="FLAC.sln" Description="No Conversion Required">
+</Event></UpgradeLog>
