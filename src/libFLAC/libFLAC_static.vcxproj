@@ -43,7 +43,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.\include;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;FLAC__HAS_OGG;FLAC__CPU_IA32;FLAC__USE_3DNOW;VERSION="1.2.0";FLAC__NO_DLL;DEBUG;FLAC__OVERFLOW_DETECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;FLAC__CPU_IA32;FLAC__USE_3DNOW;VERSION="1.2.0";FLAC__NO_DLL;DEBUG;FLAC__OVERFLOW_DETECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -65,7 +65,7 @@
       <OmitFramePointers>true</OmitFramePointers>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>.\include;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;FLAC__HAS_OGG;FLAC__CPU_IA32;FLAC__USE_3DNOW;VERSION="1.2.0";FLAC__NO_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;FLAC__CPU_IA32;FLAC__USE_3DNOW;VERSION="1.2.0";FLAC__NO_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <PrecompiledHeader>
@@ -147,6 +147,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/bitreader_asm.nasm;ia32/nasm.h;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/bitreader_asm.obj;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </CustomBuild>
     <CustomBuild Include="ia32\cpu_asm.nasm">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nasmw.exe -f win32 -d OBJ_FORMAT_win32 -i ia32/ ia32/cpu_asm.nasm -o ia32/cpu_asm.obj
@@ -158,6 +159,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/cpu_asm.nasm;ia32/nasm.h;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/cpu_asm.obj;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </CustomBuild>
     <CustomBuild Include="ia32\fixed_asm.nasm">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nasmw.exe -f win32 -d OBJ_FORMAT_win32 -i ia32/ ia32/fixed_asm.nasm -o ia32/fixed_asm.obj
@@ -169,6 +171,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/fixed_asm.nasm;ia32/nasm.h;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/fixed_asm.obj;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </CustomBuild>
     <CustomBuild Include="ia32\lpc_asm.nasm">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nasmw.exe -f win32 -d OBJ_FORMAT_win32 -i ia32/ ia32/lpc_asm.nasm -o ia32/lpc_asm.obj
@@ -180,6 +183,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/lpc_asm.nasm;ia32/nasm.h;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/lpc_asm.obj;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </CustomBuild>
     <CustomBuild Include="ia32\stream_encoder_asm.nasm">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nasmw.exe -f win32 -d OBJ_FORMAT_win32 -i ia32/ ia32/stream_encoder_asm.nasm -o ia32/stream_encoder_asm.obj
@@ -191,6 +195,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/stream_encoder_asm.nasm;ia32/nasm.h;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ia32/stream_encoder_asm.obj;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
