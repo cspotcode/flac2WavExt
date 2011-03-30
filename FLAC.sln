@@ -62,6 +62,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_streams", "src\test_st
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "utf8_static", "src\share\utf8\utf8_static.vcxproj", "{4CEFBC92-C215-11DB-8314-0800200C9A66}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "flac2WavDll", "flac2WavDll\flac2WavDll.vcxproj", "{F211BBA8-6D29-4614-92AD-AE6E2BD47DD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -122,6 +124,10 @@ Global
 		{4CEFBC91-C215-11DB-8314-0800200C9A66}.Release|Win32.ActiveCfg = Release|Win32
 		{4CEFBC92-C215-11DB-8314-0800200C9A66}.Debug|Win32.ActiveCfg = Debug|Win32
 		{4CEFBC92-C215-11DB-8314-0800200C9A66}.Release|Win32.ActiveCfg = Release|Win32
+		{F211BBA8-6D29-4614-92AD-AE6E2BD47DD6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F211BBA8-6D29-4614-92AD-AE6E2BD47DD6}.Debug|Win32.Build.0 = Debug|Win32
+		{F211BBA8-6D29-4614-92AD-AE6E2BD47DD6}.Release|Win32.ActiveCfg = Release|Win32
+		{F211BBA8-6D29-4614-92AD-AE6E2BD47DD6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
