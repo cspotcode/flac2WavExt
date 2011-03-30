@@ -45,7 +45,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.\include;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;FLAC_API_EXPORTS;FLAC__HAS_OGG;FLAC__CPU_IA32;FLAC__HAS_NASM;FLAC__USE_3DNOW;VERSION="1.2.0";DEBUG;FLAC__OVERFLOW_DETECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;FLAC_API_EXPORTS;FLAC__HAS_OGG;FLAC__CPU_IA32;FLAC__USE_3DNOW;VERSION="1.2.0";DEBUG;FLAC__OVERFLOW_DETECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
