@@ -3,3 +3,6 @@
 *.tlog
 *.pdb
 *.idb
+*.lastbuildstate
+*.unsuccessfulbuild
+obj/*
