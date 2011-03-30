@@ -140,10 +140,22 @@
     <ClCompile Include="memory.c" />
     <ClCompile Include="metadata_iterators.c" />
     <ClCompile Include="metadata_object.c" />
-    <ClCompile Include="ogg_decoder_aspect.c" />
-    <ClCompile Include="ogg_encoder_aspect.c" />
-    <ClCompile Include="ogg_helper.c" />
-    <ClCompile Include="ogg_mapping.c" />
+    <ClCompile Include="ogg_decoder_aspect.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ogg_encoder_aspect.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ogg_helper.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ogg_mapping.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="stream_decoder.c" />
     <ClCompile Include="stream_encoder.c" />
     <ClCompile Include="stream_encoder_framing.c" />
