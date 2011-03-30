@@ -37,7 +37,7 @@ class OurEncoder: public FLAC::Encoder::File {
 public:
 	OurEncoder(): FLAC::Encoder::File() { }
 protected:
-	virtual void progress_callback(FLAC__uint64 bytes_written, FLAC__uint64 samples_written, unsigned frames_written, unsigned total_frames_estimate);
+	/*virtual void progress_callback(FLAC__uint64 bytes_written, FLAC__uint64 samples_written, unsigned frames_written, unsigned total_frames_estimate);*/
 };
 
 #define READSIZE 1024
@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
 				for(i = 0; i < need*channels; i++) {
 					/* inefficient but simple and works on big- or little-endian machines */
 					//pcm[i] = (FLAC__int32)(((FLAC__int16)(FLAC__int8)buffer[2*i+1] << 8) | (FLAC__int16)buffer[2*i]);
-					pcm[i] = /* *(FLAC__int32*)& */(FLAC__int8)(buffer[i] ^ 0x80); // TODO fix this ugliness
+					pcm[i] = /* *(FLAC__int32*)& */(FLAC__int8)(buffer[i] ^ 0x80); /* flip the sign but cuz 8-bit wave is unsigned */
 				}
 				/* feed samples to encoder */
 				ok = encoder.process_interleaved(pcm, need);
@@ -169,11 +169,11 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void OurEncoder::progress_callback(FLAC__uint64 bytes_written, FLAC__uint64 samples_written, unsigned frames_written, unsigned total_frames_estimate)
+/*void OurEncoder::progress_callback(FLAC__uint64 bytes_written, FLAC__uint64 samples_written, unsigned frames_written, unsigned total_frames_estimate)
 {
 #ifdef _MSC_VER
 	fprintf(stderr, "wrote %I64u bytes, %I64u/%u samples, %u/%u frames\n", bytes_written, samples_written, total_samples, frames_written, total_frames_estimate);
 #else
 	fprintf(stderr, "wrote %llu bytes, %llu/%u samples, %u/%u frames\n", bytes_written, samples_written, total_samples, frames_written, total_frames_estimate);
 #endif
-}
+}*/
